@@ -1,0 +1,293 @@
+<html>
+<head>
+
+
+
+<style>
+
+*{
+  
+  box-sizing: border-box;
+  
+}
+
+body{
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFFF;
+  font-family: 'Lato' !important;
+  position: relative;
+}
+
+#container {
+  display: none;
+  flex-direction: column;
+  align-items:center;
+}
+
+.search-box{
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  background: ;
+}
+.input-search{
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all .5s ease-in-out;
+  background-color: #22a6b3;
+  padding-right: 40px;
+  color:#fff;
+}
+.input-search::placeholder{
+  color:#000000;
+  opacity: .5;
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.btn-search{
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color:#ffffff ;
+  background-color:transparent;
+  pointer-events: painted;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-search:focus ~ .input-search{
+  width: 80vw;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid #22a6b3;
+  opacity: ;
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+.input-search:focus{
+  width: 80vw;
+  color: #000000;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid #22a6b3;
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 14px;
+  margin-top: ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+a {
+}
+
+/* Estilo del icono de la lupa */
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: ; /* Color blanco para el icono de la lupa */
+}
+
+
+
+
+.lds-ellipsis {
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 60px;
+  background: ;
+  justify-content:center;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: calc(50% - 6.5px);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22a6b3;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 12px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 12px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 36px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 60px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<div id="container">
+  <div class="search-box">
+    <button onclick="btnSearch()" class="btn-search">
+      <svg class="iconSearch" viewBox="-40 20 550 425" width="40" height="40"  style="background: #22a6b3; border-radius: 50%; padding: 5px;"><path fill="#FFFFFF" d="M440.9,377.3l-59-83.5c29-64.7,17-143.4-36-196.4c-68.5-68.5-180.1-68.5-248.6,0c-68.5,68.5-68.5,180.1,0,248.6  c53,53,131.8,65,196.4,36l83.5,59c17.6,17.6,46.1,17.6,63.6,0C458.5,423.3,458.5,394.8,440.9,377.3z M161,282.3  c-33.4-33.5-33.4-87.9,0-121.3c33.5-33.5,87.9-33.5,121.3,0s33.4,87.9,0,121.3S194.4,315.7,161,282.3z"/></svg>
+    </button>
+    <input id="input" type="text" class="input-search" placeholder="Type to Search...">
+  </div>
+  <br><br><br>
+  <ul>
+  <!-- Enlace a Facebook -->
+  <a href="https://www.facebook.com/">
+    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="30" height="30">
+      <path fill="#000000" d="M25,3C12.85,3,3,12.85,3,25c0,11.03,8.125,20.137,18.712,21.728V30.831h-5.443v-5.783h5.443v-3.848 c0-6.371,3.104-9.168,8.399-9.168c2.536,0,3.877,0.188,4.512,0.274v5.048h-3.612c-2.248,0-3.033,2.131-3.033,4.533v3.161h6.588 l-0.894,5.783h-5.694v15.944C38.716,45.318,47,36.137,47,25C47,12.85,37.15,3,25,3z"/>
+    </svg>
+    <r>Facebook</r>
+  </a>
+  <!-- Enlace a TikTok -->
+  <a href="https://tiktok.com/">
+    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="30" height="30">
+      <path fill="#000000" d="M41,4H9C6.243,4,4,6.243,4,9v32c0,2.757,2.243,5,5,5h32c2.757,0,5-2.243,5-5V9C46,6.243,43.757,4,41,4z M37.006,22.323 c-0.227,0.021-0.457,0.035-0.69,0.035c-2.623,0-4.928-1.349-6.269-3.388c0,5.349,0,11.435,0,11.537c0,4.709-3.818,8.527-8.527,8.527 s-8.527-3.818-8.527-8.527s3.818-8.527,8.527-8.527c0.178,0,0.352,0.016,0.527,0.027v4.202c-0.175-0.021-0.347-0.053-0.527-0.053 c-2.404,0-4.352,1.948-4.352,4.352s1.948,4.352,4.352,4.352s4.527-1.894,4.527-4.298c0-0.095,0.042-19.594,0.042-19.594h4.016 c0.378,3.591,3.277,6.425,6.901,6.685V22.323z"/>
+    </svg>
+    <r>TikTok</r>
+  </a>
+  <!-- Enlace a YouTube -->
+  <a href="https://www.youtube.com/">
+    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="30" height="30">
+      <path fill="#000000" d="M 44.898438 14.5 C 44.5 12.300781 42.601563 10.699219 40.398438 10.199219 C 37.101563 9.5 31 9 24.398438 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.398438 17 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.898438 40.5 17.898438 41 24.5 41 C 31.101563 41 37.101563 40.5 40.601563 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.101563 35.5 C 45.5 33 46 29.398438 46.101563 25 C 45.898438 20.5 45.398438 17 44.898438 14.5 Z M 19 32 L 19 18 L 31.199219 25 Z"/>
+    </svg>
+    <r>YouTube</r>
+  </a>
+  </ul>
+</div>
+  
+  
+  
+  
+  <div id="elipsis" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+  
+  
+  
+
+<div style="position: absolute; bottom: 0; right: 0; overflow: hidden; width: 150px; height: 150px; background: ;">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="300" height="300" viewBox="0 0 1031.000000 1015.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,1015.000000) scale(0.100000,-0.100000)"
+fill="#000000" opacity=".1" stroke="none">
+<path d="M1853 9120 c-131 -19 -278 -81 -393 -166 -164 -120 -273 -276 -337
+-481 l-28 -88 -3 -1427 -2 -1428 1125 0 c619 0 1125 1 1125 3 0 1 -101 405
+-225 897 -123 492 -223 896 -222 897 1 1 405 -99 897 -222 492 -124 896 -225
+898 -225 1 0 2 506 2 1125 l0 1125 -1392 -1 c-766 -1 -1416 -5 -1445 -9z"/>
+<path d="M5590 8005 c0 -619 1 -1125 3 -1125 1 0 405 101 897 225 492 123 896
+223 897 222 1 -1 -99 -405 -222 -897 -124 -492 -225 -896 -225 -897 0 -2 506
+-3 1125 -3 l1125 0 0 1363 c0 900 -4 1391 -11 1447 -23 189 -114 378 -247 513
+-118 121 -236 193 -399 244 l-88 28 -1427 3 -1428 3 0 -1126z"/>
+<path d="M1090 3251 c0 -1187 2 -1390 15 -1465 33 -188 104 -331 232 -466 125
+-132 260 -214 432 -263 l76 -22 1423 -3 1422 -3 0 1126 c0 619 -1 1125 -2
+1125 -2 0 -406 -101 -898 -225 -492 -123 -896 -223 -897 -222 -1 1 99 405 222
+897 124 492 225 896 225 898 0 1 -506 2 -1125 2 l-1125 0 0 -1379z"/>
+<path d="M6940 4628 c0 -2 101 -406 225 -898 123 -492 223 -896 222 -897 -1
+-1 -405 99 -897 222 -492 124 -896 225 -897 225 -2 0 -3 -506 -3 -1125 l0
+-1125 1378 0 c861 0 1403 4 1447 10 189 27 385 129 521 272 108 112 178 237
+228 403 20 69 20 87 23 1493 l4 1422 -1126 0 c-619 0 -1125 -1 -1125 -2z"/>
+</g>
+</svg>
+
+
+</div> 
+
+
+
+<script>
+
+  function btnSearch() {
+    var width = document.getElementById("input").clientWidth;
+    if (width == 50) {
+    } else {
+      let valueinput = document.getElementById("input").value;
+      if (valueinput) {
+        location.href = "https://www.google.com/search?q=" + valueinput;
+        return false;
+        //performTask("GriddyBrowser WebSearch","10","1", valueinput);
+      }
+    }
+  }
+</script>
+<script>
+  const myTimeout = setTimeout(myHome, 1500);
+  function myHome() {
+    document.getElementById("elipsis").style.display = "none";
+    document.getElementById("container").style.display = "flex";
+  }
+    
+ </script>
+
+</body>
+</html>
