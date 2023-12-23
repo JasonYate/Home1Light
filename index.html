@@ -199,7 +199,7 @@ a {
     <button onclick="btnSearch()" class="btn-search">
       <svg class="iconSearch" viewBox="-40 20 550 425" width="40" height="40"  style="background: #22a6b3; border-radius: 50%; padding: 5px;"><path fill="#FFFFFF" d="M440.9,377.3l-59-83.5c29-64.7,17-143.4-36-196.4c-68.5-68.5-180.1-68.5-248.6,0c-68.5,68.5-68.5,180.1,0,248.6  c53,53,131.8,65,196.4,36l83.5,59c17.6,17.6,46.1,17.6,63.6,0C458.5,423.3,458.5,394.8,440.9,377.3z M161,282.3  c-33.4-33.5-33.4-87.9,0-121.3c33.5-33.5,87.9-33.5,121.3,0s33.4,87.9,0,121.3S194.4,315.7,161,282.3z"/></svg>
     </button>
-    <input id="input" type="text" class="input-search" placeholder="Type to Search...">
+    <input onkeydown="search(this)" id="input" type="text" class="input-search" placeholder="Type to Search...">
   </div>
   <br><br><br>
   <ul>
@@ -278,6 +278,12 @@ fill="#000000" opacity=".1" stroke="none">
         return false;
         //performTask("GriddyBrowser WebSearch","10","1", valueinput);
       }
+    }
+  }
+
+  function search(ele) {
+    if(event.key === 'Enter') {
+      location.href = "https://www.google.com/search?q=" + ele.value;       
     }
   }
 </script>
