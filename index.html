@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hime Light</title>
+<title>Home Light</title>
 <style>
+
+body {
+  margin: 0;
+}
+
   .container {
     width: 100%;
     height: 500px;
@@ -14,6 +19,7 @@
     align-items: center;
     overflow: hidden;
   }
+
   .row {
     width: 90%;
     max-width: 700px;
@@ -23,14 +29,16 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(4em, 1fr));
     justify-content: center;
-    grid-gap: 5px;
+    gap: 1em;
     margin-bottom: ;
+    box-sizing: content-box;
   }
   .box {
     aspect-ratio: 1;
     background-color: #ccc;
-    margin: 0 10px;
-    height: auto;
+    height: 4em;
+    box-sizing: content-box;
+    margin: auto;
   }
 </style>
 </head>
