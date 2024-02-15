@@ -53,19 +53,21 @@ body{
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
-  
-  grid-gap: ;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  margin: ;
+  width: 90%;
+  grid-gap: 5px;
   background-color: ;
   padding: 10px;
-  width: 90%;
   overflow: hiden;
   border-radius: 15px;
-  justify-content: space-between;
+}
+
+.grid-container > * {
+  
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
   border: 0px solid rgba(0, 0, 0, 0.8);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   padding: ;
@@ -77,9 +79,8 @@ body{
   text-align: center;
   aspect-ratio: 1;
   position:relative;
-  flex:1;
-  margin: 10px;
   width: ;
+  flex: 1;
   background: rgba(300,300,300,.2);
 }
 
