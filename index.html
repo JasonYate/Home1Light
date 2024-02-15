@@ -25,12 +25,16 @@ body{
   font-family: 'Lato' !important;
   position: relative;
 }
+#background{
+ width: 100%;
+ height: 100%
+ position: absolute;
+}
 
 #background:after {
   content: 'click to update';
   font-size: .8em;
   color: rgba(0, 0, 0, .3);
-  position: absolute;
   width: 100%;
   bottom: 1em;
   text-align: center;
@@ -364,7 +368,7 @@ function boxShadows(max) {
   for (let i = 0; i < max; ++i) {
     ret.push(`
       ${ rn(1, 100) }vw ${ rn(1, 100) }vh ${ rn(20, 40) }vmin ${ rn(1, 20) }vmin
-      ${ rs('#FFFFFF', '#F6F6F6', '#FFFFFF', 'red') }
+      ${ rs('#FFFFFF', '#F6F6F6', '#FFFFFF', '#E9E9E9') }
     `)
   }
   return ret.join(',');
