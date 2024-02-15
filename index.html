@@ -26,12 +26,32 @@ body{
   position: relative;
 }
 
+#background:after {
+  content: 'click to update';
+  font-size: .8em;
+  color: rgba(0, 0, 0, .3);
+  position: absolute;
+  width: 100%;
+  bottom: 1em;
+  text-align: center;
+  overflow: hidden;
+}
+
+#cloud {
+  overflow: hidden;
+  width: 1px; height: 1px;
+  transform: translate(-100%, -100%);
+  border-radius: 50%;
+  filter: url(#filter);
+}
+
 #container {
   background: ;
   display: flex;
   flex-direction: column;
   align-items:center;
   width: 70%;
+  z-index: 999;
 }
 
 .search-box{
@@ -215,6 +235,18 @@ transform: scale(0.5, 0.5);
 
 <body>
 
+<div id="background">
+  <div id="cloud"></div>
+  <svg width="0">
+    <filter id="filter">
+      <feTurbulence type="fractalNoise"
+        baseFrequency=".01" numOctaves="10" />
+      <feDisplacementMap
+        in="SourceGraphic" scale="240" />
+    </filter>
+  </svg>
+</div>
+
 <div id="container">
   <div class="search-box">
     <button onclick="btnSearch()" class="btn-search">
@@ -316,6 +348,38 @@ fill="#000000" opacity=".1" stroke="none">
   }
     
  </script>
+ 
+ 
+<script>
+function rn(from, to) {
+  return ~~(Math.random() * (to - from + 1)) + from;
+}
+
+function rs() {
+  return arguments[rn(1, arguments.length) - 1];
+}
+
+function boxShadows(max) {
+  let ret = [];
+  for (let i = 0; i < max; ++i) {
+    ret.push(`
+      ${ rn(1, 100) }vw ${ rn(1, 100) }vh ${ rn(20, 40) }vmin ${ rn(1, 20) }vmin
+      ${ rs('#FFFFFF', '#F6F6F6', '#FFFFFF', 'E9E9E9') }
+    `)
+  }
+  return ret.join(',');
+}
+
+const cloud = document.querySelector('#cloud');
+function update() {
+  cloud.style.boxShadow = boxShadows(100); 
+}
+
+window.addEventListener('load', update); 
+/*document.addEventListener('click', update);*/ 
+
+</script>
+
 
 </body>
 </html>
