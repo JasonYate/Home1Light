@@ -10,7 +10,7 @@
 
 body{
   zoom: ;
-  margin: 0px;
+  margin: 0;
   padding: 0px;
   width: 100vw;
   height: 100vh;
@@ -52,8 +52,8 @@ body{
 }
 
 .grid-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
   grid-gap: 4%;
   background-color: ;
   padding: 10px;
@@ -61,6 +61,7 @@ body{
   overflow: hiden;
   border-radius: 15px;
 }
+
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
   border: 0px solid rgba(0, 0, 0, 0.8);
