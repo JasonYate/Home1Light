@@ -51,29 +51,22 @@ body{
   filter: url(#filter);
 }
 
-#cont {
-  width: 85%;
-  position relative;
-  display: flex;
-}
-
 .grid-container {
   background:red;
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
   background-color: ;
   padding: 10px;
-  width: 100%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   overflow: hiden;
   border-radius: 15px;
   resize: both;
-  box-sizing: border-box;
-
-  justify-content: space-evenly;
-  justify-items: center;
-  align-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .grid-item {
@@ -87,6 +80,7 @@ body{
   aspect-ratio: 1;
   position:relative;
   flex:;
+  width: 100%;
 
   
   background: rgba(300,300,300,.4);
@@ -307,7 +301,6 @@ transform: scale(0.5, 0.5);
     <input onkeydown="search(this)" id="input" type="text" class="input-search" placeholder="Type to Search...">
   </div>
   <br><br><br>
-<div id="cont">
   <ul>
   
   <!-- Enlace a Facebook -->
@@ -458,7 +451,6 @@ transform: scale(0.5, 0.5);
     </svg>
     <r>X</r>
   </a>
-</div>
 </div>
   
   
