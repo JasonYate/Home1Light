@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home Light</title>
+<title>Quad - MultiBrowser</title>
 <style>
 
 body {
   margin: 0;
-  position:;
+  position: bby;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -65,10 +65,18 @@ body {
   height: 100%;
   background: transparent;
   border-style: none;
-  padding-left: 30px;
+  padding-left: 20px;
   font-size: 15px;
   letter-spacing: 2px;
   outline: none;
+  font-weight: 300;
+}
+
+#in::placeholder{
+  color:rgba(0,0,0,.5);
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 100;
 }
 
 .btn-search {
@@ -130,8 +138,7 @@ body {
     background: rgba(300,300,300,.2);
 }
 .icn {
-  width:100%;
-  
+  width:100%; 
 }
 
 r {
@@ -224,7 +231,7 @@ r {
   <div id="search-box">
     <input onkeydown="search(this)" id="in" type="text" class="input-search" placeholder="Type to Search...">
     <button onclick="btnSearch()" class="btn-search">
-      <svg class="iconSearch" viewBox="0 0 28 32">
+      <svg class="iconSearch" viewBox="-5 -5 38 42">
         <g>
           <path class="iconFillSearch" fill="#8E8F92" d="M16,6A10,10,0,1,0,26,16,10,10,0,0,0,16,6Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,16,24Zm11.71,3.71a1,1,0,0,1-1.42,0l-2-2a1,1,0,0,1,1.42-1.42l2,2A1,1,0,0,1,27.71,27.71Z"/>
         </g>
@@ -421,4 +428,4 @@ window.addEventListener('load', update);
 </script>
 
 </body>
-  </html>
+</html>
