@@ -12,6 +12,9 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #background{
@@ -109,17 +112,22 @@ body {
   
   .row {
     width: 70%;
-    max-width: 700px;
     height: ;
     justify-content: space-between;
     background: ;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(2.5em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
     justify-content: center;
-    gap: 1.5em;
+    gap: 1em;
     margin-bottom: ;
     box-sizing: content-box;
   }
+  
+   @media screen and (max-width: 300px) {
+      .row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
 
   .box {
     margin: auto;
