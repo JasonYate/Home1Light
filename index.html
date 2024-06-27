@@ -373,12 +373,13 @@ fill="#000000" opacity=".1" stroke="none">
 </div> 
 
 <script>
- /* const pixelDensity = window.devicePixelRatio;
+  const pixelDensity = window.devicePixelRatio;
+  //alert(pixelDensity)
   var zoom = 2.15625/pixelDensity;
-  //alert(zoom + "\n" + pixelDensity )
-  document.body.style.zoom = zoom;
-  document.body.style.MozTransform = 'scale(' + zoom + ')';
-  document.body.style.WebkitTransform = 'scale(' + zoom + ')';*/
+  let container = documentGetElementById("container");
+  container.style.zoom = zoom;
+  container.style.MozTransform = 'scale(' + zoom + ')';
+  container.style.WebkitTransform = 'scale(' + zoom + ')';
 </script>
   
 <script>
