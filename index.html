@@ -373,13 +373,28 @@ fill="#000000" opacity=".1" stroke="none">
 </div> 
 
 <script>
-  const pixelDensity = window.devicePixelRatio;
-  //alert(pixelDensity)
-  var zoom = 2.15625/pixelDensity;
-  let container = documentGetElementById("container");
-  container.style.zoom = zoom;
-  container.style.MozTransform = 'scale(' + zoom + ')';
-  container.style.WebkitTransform = 'scale(' + zoom + ')';
+  function setZoom() {
+  const originalDeviceDPI = 2.15625; // DPI del dispositivo original
+  const currentDeviceDPI = window.devicePixelRatio;
+  const scale = originalDeviceDPI / currentDeviceDPI;
+  
+  document.body.style.zoom = scale;
+  // O alternativamente:
+  // document.body.style.transform = `scale(${scale})`;
+  // document.body.style.transformOrigin = "0 0";
+  
+  // Ajustar el tamaño del body si es necesario
+  document.body.style.width = (100 / scale) + "%";
+  document.body.style.height = (100 / scale) + "%";
+  
+  // Ajustar el estilo de overflow si es necesario
+  document.body.style.overflow = "auto";
+}
+
+// Llamar a la función cuando la página se carga
+window.addEventListener('load', setZoom);
+// También puedes llamarla cuando la ventana cambia de tamaño
+window.addEventListener('resize', setZoom);
 </script>
   
 <script>
