@@ -220,7 +220,7 @@ r {
 </style>
 </head>
 <body>
-
+<div id="root">
 <div id="background">
   <div id="cloud"></div>
   <svg width="0">
@@ -371,40 +371,43 @@ fill="#000000" opacity=".1" stroke="none">
     </g>
   </svg>
 </div> 
+</div>
 
+  
 <script>
   function adjustLayout() {
-  const originalDeviceDPI = 2.15625; // DPI del dispositivo original
-  const currentDeviceDPI = window.devicePixelRatio;
-  const scale = originalDeviceDPI / currentDeviceDPI;
+    const originalDeviceDPI = 2.15625; // DPI del dispositivo original
+    const currentDeviceDPI = window.devicePixelRatio;
+    const scale = originalDeviceDPI / currentDeviceDPI;
 
-  // Ajustar el body
-  document.body.style.transform = `scale(${scale})`;
-  document.body.style.transformOrigin = "top left";
-  document.body.style.width = `${100 / scale}%`;
-  document.body.style.height = `${100 / scale}%`;
-  document.body.style.overflow = "hidden";
+    const root = document.getElementById('root');
+    if (!root) return;
 
-  // Crear o ajustar el contenedor
-  let container = document.getElementById("container");
-  if (!container) {
-    container = document.createElement("div");
-    container.id = "container";
-    // Mover todo el contenido del body al contenedor
-    while (document.body.firstChild) {
-      container.appendChild(document.body.firstChild);
+    // Ajustar el tamaño de la fuente base
+    document.documentElement.style.fontSize = `${16 * scale}px`;
+
+    // Ajustar el tamaño del contenedor raíz
+    root.style.transform = `scale(${scale})`;
+    root.style.transformOrigin = 'top left';
+    root.style.width = `${100 / scale}%`;
+    root.style.height = `${100 / scale}%`;
+
+    // Ajustar el body para evitar scroll
+    document.body.style.overflow = 'hidden';
+    document.body.style.width = '100vw';
+    document.body.style.height = '100vh';
+
+    // Ajustar todos los elementos con tamaños absolutos
+    const elements = root.getElementsByTagName('*');
+    for (let el of elements) {
+        const styles = window.getComputedStyle(el);
+        ['width', 'height', 'top', 'left', 'right', 'bottom', 'font-size'].forEach(prop => {
+            if (styles[prop] && styles[prop].endsWith('px')) {
+                const value = parseFloat(styles[prop]);
+                el.style[prop] = `${value / scale}px`;
+            }
+        });
     }
-    document.body.appendChild(container);
-  }
-
-  // Ajustar el contenedor
-  container.style.transform = `scale(${1 / scale})`;
-  container.style.transformOrigin = "top left";
-  container.style.width = `${100 * scale}%`;
-  container.style.height = `${100 * scale}%`;
-  container.style.position = "absolute";
-  container.style.top = "0";
-  container.style.left = "0";
 }
 
 // Llamar a la función cuando la página se carga y cuando la ventana cambia de tamaño
