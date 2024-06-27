@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Quad - MultiBrowser</title>
 <style>
 
@@ -373,28 +373,45 @@ fill="#000000" opacity=".1" stroke="none">
 </div> 
 
 <script>
-  function setZoom() {
+  function adjustLayout() {
   const originalDeviceDPI = 2.15625; // DPI del dispositivo original
   const currentDeviceDPI = window.devicePixelRatio;
   const scale = originalDeviceDPI / currentDeviceDPI;
-  
-  document.body.style.zoom = scale;
-  // O alternativamente:
-  // document.body.style.transform = `scale(${scale})`;
-  // document.body.style.transformOrigin = "0 0";
-  
-  // Ajustar el tamaño del body si es necesario
-  /*document.body.style.width = (100 / scale) + "%";
-  document.body.style.height = (100 / scale) + "%";*/
-  
-  // Ajustar el estilo de overflow si es necesario
-  document.body.style.overflow = "";
+
+  // Ajustar el body
+  document.body.style.transform = `scale(${scale})`;
+  document.body.style.transformOrigin = "top left";
+  document.body.style.width = `${100 / scale}%`;
+  document.body.style.height = `${100 / scale}%`;
+  document.body.style.overflow = "hidden";
+
+  // Crear o ajustar el contenedor
+  let container = document.getElementById("container");
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "container";
+    // Mover todo el contenido del body al contenedor
+    while (document.body.firstChild) {
+      container.appendChild(document.body.firstChild);
+    }
+    document.body.appendChild(container);
+  }
+
+  // Ajustar el contenedor
+  container.style.transform = `scale(${1 / scale})`;
+  container.style.transformOrigin = "top left";
+  container.style.width = `${100 * scale}%`;
+  container.style.height = `${100 * scale}%`;
+  container.style.position = "absolute";
+  container.style.top = "0";
+  container.style.left = "0";
 }
 
-// Llamar a la función cuando la página se carga
-window.addEventListener('load', setZoom);
-// También puedes llamarla cuando la ventana cambia de tamaño
-window.addEventListener('resize', setZoom);
+// Llamar a la función cuando la página se carga y cuando la ventana cambia de tamaño
+window.addEventListener('load', adjustLayout);
+window.addEventListener('resize', adjustLayout);
+
+  
 </script>
   
 <script>
