@@ -281,7 +281,6 @@ document.getElementById('search-input').addEventListener('blur', function() {
 
         async function loadSuggestionsFromURL(url) {
             try {
-alert(url)
                 console.log(`Fetching suggestions from ${url}`);
                 const response = await fetch(url, {
                     method: 'POST',
@@ -299,6 +298,7 @@ alert(url)
                 console.log("Sugerencias cargadas:", suggestions);
             } catch (error) {
                 console.error("Error al cargar las sugerencias:", error);
+                alert('error')
             }
         }
 
