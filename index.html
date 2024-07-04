@@ -287,12 +287,7 @@ document.getElementById('search-input').addEventListener('blur', function() {
         alert(url)
         console.log(`Fetching suggestions from ${fullUrl}`);
         const response = await fetch(fullUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: JSON.stringify({})
+            method: 'GET'
         });
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
