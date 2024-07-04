@@ -284,7 +284,7 @@ document.getElementById('search-input').addEventListener('blur', function() {
         const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
         const targetUrl = url;
         const fullUrl = proxyUrl + targetUrl;
-        
+        alert(url)
         console.log(`Fetching suggestions from ${fullUrl}`);
         const response = await fetch(fullUrl, {
             method: 'POST',
